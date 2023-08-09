@@ -30,7 +30,7 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "activeTab"
     ]
   }
 }
