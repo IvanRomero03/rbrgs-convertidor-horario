@@ -43,12 +43,12 @@ const QueryTextAnywhere = () => {
       const date = card.querySelector("div.fecha-container")
       const fecha_inicio = date.querySelector("div.fecha_Inicio")
       const fecha_fin = date.querySelector("div.fecha_Fin")
-      console.log(fecha_inicio.textContent, " ", fecha_fin.textContent)
+      // console.log(fecha_inicio.textContent, " ", fecha_fin.textContent)
       // <div class="main-container-materia">
       const materia = card.querySelector("div.main-container-materia")
       const materia_nombre = materia.querySelector("div.materia-text")
       const maestro = materia.querySelector("div.nombre-profesor")
-      console.log(materia_nombre.textContent, " ", maestro.textContent)
+      // console.log(materia_nombre.textContent, " ", maestro.textContent)
       // <div class="main-container-horario">
       const horario = card.querySelector("div.main-container-horario")
       // <div class="list-fechas d-flex align-items-center">
@@ -58,13 +58,13 @@ const QueryTextAnywhere = () => {
       const horario_hora = horario.querySelector(
         "div.horas-text.d-flex.align-items-center"
       )
-      console.log(horario_dias, " ", horario_hora.textContent)
+      // console.log(horario_dias, " ", horario_hora.textContent)
       // <div class="main-container-edificio">
       const Edificio_Info = card.querySelector("div.main-container-edificio")
       const Edificio = Edificio_Info.querySelector("div.edificio-text")
       const Salon = Edificio_Info.querySelector("div.salon-text")
 
-      console.log("Edificiooos:", Edificio.textContent, " ", Salon.textContent)
+      // console.log("Edificiooossss:", Edificio.textContent, " ", Salon.textContent)
 
       // RRULE:FREQ=WEEKLY;BYDAY=MO,WE,TH;UNTIL=20230217T180000Z
 
@@ -113,9 +113,8 @@ const QueryTextAnywhere = () => {
           end: [startYear, startMonth, startDay, endHour, endMinute],
           recurrenceRule: rrule,
           location:
-            Edificio.textContent.trim() + ": " + Salon.textContent.trim()
+            Edificio.textContent.trim() + ": " + Salon.textContent.trim(),
         }
-        console.log(event)
         classInfo.push(event)
       }
     })
