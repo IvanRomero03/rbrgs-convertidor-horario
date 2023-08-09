@@ -11,7 +11,8 @@ Esta extesión es una herramienta para extraer de manera ágil tu horario de la 
 ## Instalación
 
 
-## Uso
-
+## Generar ICS
+[Generar ICS](https://drive.google.com/file/d/1gzGVOyGoSQXVhnQb4_fYvcxhdIHpX1XQ/view?usp=sharing)
 
 ## Usar ICS en Outlook
+[Usar ICS](https://drive.google.com/file/d/1dQ8_2nrA8qEVjEH26M1UHcpf17R77qCA/view?usp=sharing)
