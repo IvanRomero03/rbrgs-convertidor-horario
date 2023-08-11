@@ -9,6 +9,7 @@ Esta extesión es una herramienta para extraer de manera ágil tu horario de la 
 | Ivan Romero | i.wells.ar@gmail.com | @IvanRomero03 |
 
 ## Instalación
+[Agregar extension](https://drive.google.com/file/d/1XU9DNIdzjOr9ixjm8lxPhOTAw0CpxPJg/view?usp=sharing)
 
 
 ## Generar ICS
