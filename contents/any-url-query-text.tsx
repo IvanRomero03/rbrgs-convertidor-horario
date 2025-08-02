@@ -21,7 +21,9 @@ function formatDateToISO8601(date: Date) {
 }
 
 const QueryTextAnywhere = () => {
-  const { data } = useMessage<string, string>(async (req, res) => {
+  useMessage<string, string>(async (req, res) => {
+    console.log("Content script received message:", req)
+    if (req.name !== "query-selector-text") return;
     const classInfo: EventAttributes[] = []
     // console.log(req.body)
     // <label _ngcontent-eju-c545="" class="btn tab ml-3 btn-calendar"><input _ngcontent-eju-c545="" type="radio" name="options" id="option2"> Detalle </label>
