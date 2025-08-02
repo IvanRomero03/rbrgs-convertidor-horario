@@ -23,53 +23,33 @@ function formatDateToISO8601(date: Date) {
 const QueryTextAnywhere = () => {
   useMessage<string, string>(async (req, res) => {
     console.log("Content script received message:", req)
-    if (req.name !== "query-selector-text") return;
+    if (req.name !== "query-selector-text") return
     const classInfo: EventAttributes[] = []
-    // console.log(req.body)
-    // <label _ngcontent-eju-c545="" class="btn tab ml-3 btn-calendar"><input _ngcontent-eju-c545="" type="radio" name="options" id="option2"> Detalle </label>
     const button = document
       .querySelector("label.btn.tab.ml-3.btn-calendar")
       .querySelector("input")
-    // console.log(button)
-    // click button
     button.click()
-    // <div _ngcontent-jai-c545="" class="main-container-tarjetas p-0">
     const cards_containter = document.querySelector(
       "div.main-container-tarjetas.p-0"
     )
-    //console.log(cards_containter);
-    // get all <div class="container-tarjetas">
     const cards = cards_containter.querySelectorAll("div.container-tarjetas")
     const cards_info = cards.forEach((card) => {
-      // <div class ="fecha-container">
       const date = card.querySelector("div.fecha-container")
       const fecha_inicio = date.querySelector("div.fecha_Inicio")
       const fecha_fin = date.querySelector("div.fecha_Fin")
-      // console.log(fecha_inicio.textContent, " ", fecha_fin.textContent)
-      // <div class="main-container-materia">
       const materia = card.querySelector("div.main-container-materia")
       const materia_nombre = materia.querySelector("div.materia-text")
       const maestro = materia.querySelector("div.nombre-profesor")
-      // console.log(materia_nombre.textContent, " ", maestro.textContent)
-      // <div class="main-container-horario">
       const horario = card.querySelector("div.main-container-horario")
-      // <div class="list-fechas d-flex align-items-center">
       const horario_dias = horario.querySelector(
         "div.list-fechas.d-flex.align-items-center"
       )
       const horario_hora = horario.querySelector(
         "div.horas-text.d-flex.align-items-center"
       )
-      // console.log(horario_dias, " ", horario_hora.textContent)
-      // <div class="main-container-edificio">
       const Edificio_Info = card.querySelector("div.main-container-edificio")
       const Edificio = Edificio_Info.querySelector("div.edificio-text")
       const Salon = Edificio_Info.querySelector("div.salon-text")
-
-      // console.log("Edificiooossss:", Edificio.textContent, " ", Salon.textContent)
-
-      // RRULE:FREQ=WEEKLY;BYDAY=MO,WE,TH;UNTIL=20230217T180000Z
-
       const startDate = fecha_inicio.textContent.trim()
       let startDay = Number(startDate.slice(0, 2))
       let startMonth = Number(startDate.slice(3, 5))
@@ -101,7 +81,6 @@ const QueryTextAnywhere = () => {
       if (horario_dias.textContent.includes("Vi")) rrule += "FR,"
       if (horario_dias.textContent.includes("Sa")) rrule += "SA,"
 
-      // If the length of rrule is the same as before, then no days were added. Skip class as it may be asynchronous.
       if (rrule.length != lPrev) {
         rrule = rrule.slice(0, -1)
 
@@ -115,7 +94,7 @@ const QueryTextAnywhere = () => {
           end: [startYear, startMonth, startDay, endHour, endMinute],
           recurrenceRule: rrule,
           location:
-            Edificio.textContent.trim() + ": " + Salon.textContent.trim(),
+            Edificio.textContent.trim() + ": " + Salon.textContent.trim()
         }
         classInfo.push(event)
       }
@@ -138,7 +117,6 @@ const QueryTextAnywhere = () => {
     link.click()
 
     res.send("test")
-    //res.send(document.querySelector(req.body).textContent)
   })
   return <></>
 }
