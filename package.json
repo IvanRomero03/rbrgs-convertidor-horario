@@ -30,7 +30,7 @@
   },
   "manifest": {
     "host_permissions": [
-      "activeTab"
+      "https://mitec.itesm.mx/*"
     ]
   }
 }
